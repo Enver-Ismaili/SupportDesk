@@ -1,0 +1,13 @@
+using SupportDesk.Application.Common;
+using SupportDesk.Domain.Enums;
+
+namespace SupportDesk.Application.Agents.Dtos;
+
+public class AgentDto : BooleanDto
+{
+    public Guid Id { get; set; }
+    public string FullName { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public Department Department { get; set; }
+    public bool IsActive { get; set; }
+}
