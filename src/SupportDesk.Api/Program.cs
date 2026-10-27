@@ -16,6 +16,8 @@ builder.Services.AddControllers(options => options.Filters.Add<FluentValidationF
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     });
 builder.Services.AddProblemDetails();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("Frontend", policy =>
@@ -34,6 +36,12 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 if (!app.Environment.IsDevelopment())

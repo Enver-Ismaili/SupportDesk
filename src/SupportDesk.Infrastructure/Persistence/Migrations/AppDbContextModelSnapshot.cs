@@ -57,7 +57,6 @@ namespace SupportDesk.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("SupportDesk.Domain.Entities.Comment", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AuthorName")
